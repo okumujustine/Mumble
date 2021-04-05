@@ -15,6 +15,8 @@ import './styles/App.css';
 import Error500 from './pages/Error500';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
+import MumblePage from './pages/MumblePage';
+
 import LoginOrSignupPage from './pages/LoginOrSignupPage';
 import Discussion from './pages/Discussion';
 import ProfilePage from './pages/ProfilePage';
@@ -26,6 +28,7 @@ import CreateDiscussionPage from './pages/CreateDiscussionPage';
 import Error404 from './pages/Error404';
 import NotificationsPage from './pages/NotificationsPage';
 import RestoreScroll from './common/RestoreScroll';
+
 
 const App = () => {
   const userTheme = localStorage.getItem('mumble-theme') ?? 'light';
@@ -58,6 +61,11 @@ const App = () => {
                 component={LoginOrSignupPage}
               />
               <Route exact path={'/'} component={HomePage} />
+              <Route
+                exact
+                path={'/mumble/:id'}
+                component={MumblePage}
+              />
               <Route
                 exact
                 path={'/profile/:username'}

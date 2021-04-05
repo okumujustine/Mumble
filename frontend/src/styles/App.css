@@ -100,3 +100,8 @@ textarea:focus-within {
 .snippet-text {
   color: var(--color-gray);
 }
+
+#mumble--header--wrapper{
+  display: flex;
+  column-gap: 1rem;
+}

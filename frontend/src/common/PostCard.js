@@ -5,7 +5,7 @@ import PostAction from './PostAction';
 import VotingWidget from './VotingWidget';
 import { distanceDate } from '../utilities/formatDate';
 
-const PostCard = ({ post, link, isComment = false, children, ...others }) => {
+const PostCard = ({ post, link, isComment = false, showComments = true, children, ...others }) => {
   const {
     user,
     created,
@@ -16,9 +16,9 @@ const PostCard = ({ post, link, isComment = false, children, ...others }) => {
     share_count,
   } = post;
 
-  const [showComments, setShowComments] = useState(false);
+  //const [showComments, setShowComments] = useState(true);
 
-  const toggleComments = () => setShowComments(!showComments);
+  //const toggleComments = () => setShowComments(!showComments);
 
   return (
     <div className={`${isComment && 'post-card--comment'}`} {...others}>
@@ -40,10 +40,10 @@ const PostCard = ({ post, link, isComment = false, children, ...others }) => {
         </div>
       </div>
       <PostAction
-        onMessageIconClick={toggleComments}
         comments={comment_count}
         link={link}
         shares={share_count}
+        postId={post.id}
       />
       {showComments && (
         <div className="post-comments-wrapper">

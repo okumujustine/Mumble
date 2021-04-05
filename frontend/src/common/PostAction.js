@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 
 import Button from './Button';
 
-const PostAction = ({ onMessageIconClick, comments, shares, link }) => {
+const PostAction = ({ onMessageIconClick, comments, shares, link, postId }) => {
+  console.log('LINK:', link)
   const [showCommentBox, setShowCommentBox] = useState(false);
   const [comment, setComment] = useState('');
 
@@ -22,8 +23,10 @@ const PostAction = ({ onMessageIconClick, comments, shares, link }) => {
   return (
     <div>
       <div className="post-actions-wrapper">
+      <Link to={`/mumble/${postId}`} role="button" className="post-comment-wrapper">
         <div
-          onClick={onMessageIconClick}
+        
+          // onClick={onMessageIconClick}
           className={classNames('action-wrapper', {
             'action-wrapper--disabled': parseInt(comments) === 0,
           })}
@@ -31,6 +34,7 @@ const PostAction = ({ onMessageIconClick, comments, shares, link }) => {
           <i className="fas fa-comments"></i>
           <span className="post-action-text">{comments}</span>
         </div>
+        </Link>
 
         <div className="action-wrapper" onClick={toggleCommentBox}>
           <Link to={link} role="button" className="post-comment-wrapper">
