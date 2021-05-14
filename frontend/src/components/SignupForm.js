@@ -14,7 +14,7 @@ const SignupForm = () => {
   let auth = useSelector((state) => state.auth);
   let { error } = auth;
 
-  console.log("--auth", auth)
+  console.log('--auth', auth);
   const [inputs, fieldChanges] = useForm({
     email: '',
     username: '',
